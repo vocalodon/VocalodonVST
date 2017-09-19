@@ -1,0 +1,3 @@
+src/include/* linguist-vendored
+src/extern/* linguist-vendored
+*.h linguist-language=C++
