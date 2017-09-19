@@ -14,10 +14,10 @@ http://vst.vocalodon.net/
 
 using
 
-JUCE : https://www.juce.com/
-libcurl : https://curl.haxx.se/libcurl/
-The LUFS Meter : https://github.com/klangfreund/LUFSMeter
-picojson : https://github.com/kazuho/picojson
+- JUCE : https://www.juce.com/
+- libcurl : https://curl.haxx.se/libcurl/
+- The LUFS Meter : https://github.com/klangfreund/LUFSMeter
+- picojson : https://github.com/kazuho/picojson
 
 
 ## Builds
