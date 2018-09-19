@@ -120,7 +120,7 @@ public:
 	~DonAccountModel() {
 		//
 	}
-	int getId() {
+	unsigned __int64 getId() {
 		return id;
 	}
 	string getUserName() {
@@ -138,7 +138,7 @@ public:
 	string getURL() {
 		return url;
 	}
-	void setId(int value) {
+	void setId(unsigned __int64 value) {
 		id = value;
 	}
 	void setUserName(string value) {
@@ -157,7 +157,7 @@ public:
 		url = value;
 	}
 private:
-	int id;
+	unsigned __int64 id;
 	string username;
 	string acct;
 	string display_name;//
@@ -175,7 +175,7 @@ DonMediaAttachmentModelクラス
 class DonMediaAttachmentModel {
 public:
 
-	DonMediaAttachmentModel(int pId, string pType, string pPreviewUrl, string pSize) {
+	DonMediaAttachmentModel(unsigned __int64 pId, string pType, string pPreviewUrl, string pSize) {
 		this->id = pId;
 		this->type = pType;
 		this->preview_url = pPreviewUrl;
@@ -185,7 +185,7 @@ public:
 		//
 	}
 
-	int getId() {
+	unsigned __int64 getId() {
 		return id;
 	}
 	string getType() {
@@ -197,7 +197,7 @@ public:
 	string getSize() {
 		return size;
 	}
-	void setId(int value) {
+	void setId(unsigned __int64 value) {
 		id = value;
 	}
 	void setType(string value) {
@@ -210,7 +210,7 @@ public:
 		size = value;
 	}
 private:
-	int id;
+	unsigned __int64 id;
 	string type;
 	string preview_url;
 	string size;
@@ -236,7 +236,7 @@ public:
 	}
 	DonTootModel(picojson::object obj, DonAccountModel* acnt) {
 		//メインToot
-		id = stoi(obj["id"].to_str());
+		id = stoull(obj["id"].to_str());
 		created_at = time8601toJP(obj["created_at"].to_str());
 		visibility = obj["visibility"].to_str();
 		account = acnt;
@@ -256,7 +256,7 @@ public:
 			picojson::array::iterator itr = boost_medias.begin();
 			while (itr != boost_medias.end()) {
 				picojson::object boost_media = itr->get<picojson::object>();
-				int m_id = stoi(boost_media["id"].to_str());
+				unsigned __int64 m_id = stoi(boost_media["id"].to_str());
 				string m_type = boost_media["type"].to_str();
 				string m_url = boost_media["preview_url"].to_str();
 				string m_size = boost_media["size"].to_str();
@@ -279,7 +279,7 @@ public:
 			++itr2;
 		}
 	}
-	int getId() {
+	unsigned __int64 getId() {
 		return id;
 	}
 	string getCreatedAt() {
@@ -321,7 +321,7 @@ public:
 	}
 
 
-	void setId(int value) {
+	void setId(unsigned __int64 value) {
 		id = value;
 	}
 
@@ -337,14 +337,14 @@ public:
 	void setContent(string value) {
 		content = value;
 	}
-	void addMediaAttachments(int pId,string pType,string pPreviewUrl,string pSize) {
+	void addMediaAttachments(unsigned __int64 pId,string pType,string pPreviewUrl,string pSize) {
 		DonMediaAttachmentModel* attach = new DonMediaAttachmentModel(pId, pType, pPreviewUrl, pSize);
 		media_attachments.push_back(attach);
 	}
 	
 
 private:
-	int id;
+	unsigned __int64 id;
 	string created_at;//最終的には日付型
 	string visibility;
 	DonAccountModel* account;
